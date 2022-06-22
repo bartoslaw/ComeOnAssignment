@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  ComeOn Assignment
+
+  Created by Bartłomiej Smektała on 22/06/2022.
+*/
+
+/* LIST */
+
+"list.title" = "List of Games";

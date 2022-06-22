@@ -11,7 +11,7 @@ import SwiftUI
 struct ComeOn_AssignmentApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GamesListView()
         }
     }
 }
