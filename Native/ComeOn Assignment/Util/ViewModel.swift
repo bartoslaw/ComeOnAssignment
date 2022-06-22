@@ -8,8 +8,17 @@
 import Foundation
 import Combine
 
+enum ViewModelState {
+    case initial
+    case loading
+    case result
+    case error
+    case finished
+}
+
 protocol ViewModel: ObservableObject {
     var bag: Set<AnyCancellable> { get }
+    var state: ViewModelState { get }
     
     func onAppear()
 }

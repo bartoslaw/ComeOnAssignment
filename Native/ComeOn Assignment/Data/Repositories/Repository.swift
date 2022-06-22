@@ -1,5 +1,5 @@
 //
-//  GameList.swift
+//  Repository.swift
 //  ComeOn Assignment
 //
 //  Created by Bartłomiej Smektała on 22/06/2022.
@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct GameList: Codable {
-    
+protocol Repository {
+    init(remoteSource: API)
 }

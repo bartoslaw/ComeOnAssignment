@@ -10,7 +10,7 @@ import Combine
 
 protocol UseCase {
     associatedtype Result: Codable
-    associatedtype Params: Codable
+    associatedtype Params
     
-    func execute(params: Params) -> AnyPublisher<Result, Error>
+    func execute(params: Params?) -> AnyPublisher<Result, Error>
 }

@@ -8,32 +8,38 @@
 import Foundation
 import Combine
 
-import Combine
-
 enum APIErrors: Error {
     case wrongUrl
     case requestFailed
 }
 
 protocol API {
-    func get<T: Codable>(path: String, query: [String: String]?, body: [String: String]?) -> AnyPublisher<T, Error>
+    func get<T: Codable>(path: String, query: [String: String]?, body: [String: String]?) -> AnyPublisher<[T], Error>
 }
 
 final class APIClient: API {
-    func get<T: Codable>(path: String, query: [String: String]?, body: [String: String]?) -> AnyPublisher<T, Error> {
+    func get<T: Codable>(path: String, query: [String: String]?, body: [String: String]?) -> AnyPublisher<[T], Error> {
         guard
-            var urlComponents = URLComponents(string: baseUrl)
+            var urlComponents = URLComponents(string: path)
         else {
             return Fail(error: APIErrors.wrongUrl).eraseToAnyPublisher()
         }
         
-        urlComponents.queryItems = query.map { key, value in
-            URLQueryItem(name: key, value: value)
+        if let query = query {
+            urlComponents.queryItems = query.map { key, value in
+                URLQueryItem(name: key, value: value)
+            }
         }
         
-        urlComponents.bo
+        var urlRequest = URLRequest(url: urlComponents.url!)
         
-        let urlRequest = URLRequest(url: urlComponents.url!)
+        if let body = body {
+            do  {
+                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+            } catch(let error) {
+                print(error) //TODO: add proper error handling
+            }
+        }
         
         return URLSession
             .shared
@@ -48,7 +54,7 @@ final class APIClient: API {
 
                 return response.data
             }
-            .decode(type: T.self, decoder: JSONDecoder())
+            .decode(type: [T].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
 }
