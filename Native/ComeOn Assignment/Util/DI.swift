@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol DependencyInjector {
+protocol DependencyInjector { //normally i would use smthg like Swinject, but i want to avoid using 3rd party libs for this assignment
     var api: API { get }
     var gamesRepository: GamesListRepositoryProtocol { get }
 }

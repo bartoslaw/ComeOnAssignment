@@ -7,20 +7,25 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
-protocol CoordinatorProtocol {
-    func makeGamesList()
-    func makeGameDetails(game: Game)
+final class Coordinator: ObservableObject {
+    private let injector: DependencyInjector
+    
+    init(injector: DependencyInjector) {
+        self.injector = injector
+    }
+    
+    func makeGamesList() -> GamesListView {
+        let repository = self.injector.gamesRepository
+        let useCase = GetGamesListUseCase(gamesRepository: repository)
+        let vm = GamesListViewModel(getGamesListUseCase: useCase)
+        
+        return GamesListView(viewModel: vm)
+    }
+    
+    func makeGameDetails(game: Game?) -> GameDetailsView {
+        return GameDetailsView()
+    }
 }
 
-//final class Coordinator: CoordinatorProtocol {
-//    func makeGamesList() {
-//        <#code#>
-//    }
-//    
-//    func makeGameDetails(game: Game) {
-//        <#code#>
-//    }
-//    
-//    
-//}

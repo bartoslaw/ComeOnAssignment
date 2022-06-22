@@ -8,8 +8,13 @@
 import Foundation
 import WebKit
 
+protocol WrapperWebViewDelegate {
+    func onGameChosen(code: String)
+}
+
 final class WrapperWebView: WKWebView {
     private let toggleMessageHandlerKey = "toggleMessageHandler"
+    private var delegate: WrapperWebViewDelegate?
     
     enum HandlerMessages: String {
         case gameChosen = "gameChosen"
@@ -23,20 +28,26 @@ final class WrapperWebView: WKWebView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience required init(url: URL) {
+    convenience required init(url: URL?, delegate: WrapperWebViewDelegate? = nil) {
         self.init()
-                
-        let request = URLRequest(url: url)
-        self.load(request)
-    
-        self.configuration.userContentController.add(self, name: self.toggleMessageHandlerKey)
+        self.delegate = delegate
+        
+        if let url = url {
+            let request = URLRequest(url: url)
+            self.load(request)
+        
+            self.configuration.userContentController.add(self, name: self.toggleMessageHandlerKey)
+        }
     }
 }
 
 extension WrapperWebView: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        guard let dictionary = message.body as? [String: AnyObject] else { return }
-
-        print(dictionary)
+        guard
+            let dictionary = message.body as? [String: AnyObject],
+            let value = dictionary[HandlerMessages.gameChosen.rawValue] as? String
+        else { return }
+        
+        self.delegate?.onGameChosen(code: value)
     }
 }

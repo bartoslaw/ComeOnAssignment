@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D33551182863387600DAF36B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33551172863387600DAF36B /* Repository.swift */; };
+		D3502B6328634E8B007B8699 /* GameDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3502B6228634E8B007B8699 /* GameDetailsView.swift */; };
+		D3502B6728636087007B8699 /* GameDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3502B6628636087007B8699 /* GameDetailsViewModel.swift */; };
 		D36D74B928630BB600B94696 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36D74B828630BB600B94696 /* WebView.swift */; };
 		D36D74BC28630D9D00B94696 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D36D74BE28630D9D00B94696 /* Localizable.strings */; };
 		D36D74C028630F8900B94696 /* WrapperWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36D74BF28630F8900B94696 /* WrapperWebView.swift */; };
@@ -48,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		D33551172863387600DAF36B /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		D3502B6228634E8B007B8699 /* GameDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsView.swift; sourceTree = "<group>"; };
+		D3502B6628636087007B8699 /* GameDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsViewModel.swift; sourceTree = "<group>"; };
 		D36D74B828630BB600B94696 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		D36D74BD28630D9D00B94696 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D36D74BF28630F8900B94696 /* WrapperWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WrapperWebView.swift; path = "../New Group1/WrapperWebView.swift"; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 		D3C3E7D9286337380072D04F /* GameDetails */ = {
 			isa = PBXGroup;
 			children = (
+				D3502B6228634E8B007B8699 /* GameDetailsView.swift */,
+				D3502B6628636087007B8699 /* GameDetailsViewModel.swift */,
 			);
 			path = GameDetails;
 			sourceTree = "<group>";
@@ -378,6 +384,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D36D74B928630BB600B94696 /* WebView.swift in Sources */,
+				D3502B6728636087007B8699 /* GameDetailsViewModel.swift in Sources */,
+				D3502B6328634E8B007B8699 /* GameDetailsView.swift in Sources */,
 				D36D74D028631F7700B94696 /* ViewModel.swift in Sources */,
 				D36D74C028630F8900B94696 /* WrapperWebView.swift in Sources */,
 				D3C3E7DB286337510072D04F /* DI.swift in Sources */,

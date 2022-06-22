@@ -6,5 +6,5 @@
 */
 
 /* LIST */
-
 "list.title" = "List of Games";
+"list.number.of.games %d" = "Total Number of Games %d";

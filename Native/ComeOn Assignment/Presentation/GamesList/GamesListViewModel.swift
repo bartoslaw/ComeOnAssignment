@@ -8,8 +8,8 @@
 import Foundation
 import Combine
 
-protocol GamesListVieWModelProtocol: ViewModel {
-    init(getGamesListUseCase: GetGamesListUseCase)
+enum GamesListViewModelErrors: Error {
+    case incorrectUrl
 }
 
 final class GamesListViewModel: ViewModel {
@@ -18,11 +18,20 @@ final class GamesListViewModel: ViewModel {
     
     @Published var totalAmountOfGames: Int = 0
     
+    private let urlToLoad = "http://localhost:3000"
     private let getGamesListUseCase: GetGamesListUseCase
     private var games: [Game] = []
     
     init(getGamesListUseCase: GetGamesListUseCase) {
         self.getGamesListUseCase = getGamesListUseCase
+    }
+    
+    func getUrlToLoad() -> URL? {
+        return URL(string: self.urlToLoad)
+    }
+    
+    func getGame(code: String) -> Game? {
+        return self.games.first { $0.code == code }
     }
     
     func onAppear() {
