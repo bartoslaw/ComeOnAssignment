@@ -12,6 +12,7 @@ struct ComeOn_AssignmentApp: App {
     @StateObject var coordinator: Coordinator = Coordinator(injector: Injector())
     
     init() {
+        UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().backgroundColor = .blue
     }

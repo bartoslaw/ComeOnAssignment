@@ -8,7 +8,26 @@
 import SwiftUI
 
 struct GameDetailsView: View {
+    @StateObject var viewModel: GameDetailsViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack(alignment: .center) {
+                ZStack {
+                    Text(self.viewModel.description)
+                        .padding()
+                }
+                .background(Color.white)
+                .cornerRadius(8.0)
+                .shadow(color: Color.black.opacity(0.7), radius: 2.0, x: 1.0, y: 2.0)
+                .padding(10.0)
+            }
+        }
+        .background(Color(UIColor(rgb: self.viewModel.themeColorHex)))
+        .frame(maxWidth: .infinity)
+        .navigationTitle(self.viewModel.title)
+        .onAppear {
+            self.viewModel.onAppear()
+        }
     }
 }

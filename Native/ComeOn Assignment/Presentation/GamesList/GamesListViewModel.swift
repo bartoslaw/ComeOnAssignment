@@ -18,7 +18,7 @@ final class GamesListViewModel: ViewModel {
     
     @Published var totalAmountOfGames: Int = 0
     
-    private let urlToLoad = "http://localhost:3000"
+    private let urlToLoad = "http://localhost:3000"//in real life scenario this will be moved to a separate config file which is connected to proper prod/dev/staging scheme
     private let getGamesListUseCase: GetGamesListUseCase
     private var games: [Game] = []
     

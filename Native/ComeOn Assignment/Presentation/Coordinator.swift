@@ -25,7 +25,8 @@ final class Coordinator: ObservableObject {
     }
     
     func makeGameDetails(game: Game?) -> GameDetailsView {
-        return GameDetailsView()
+        let vm = GameDetailsViewModel(game: game)
+        return GameDetailsView(viewModel: vm)
     }
 }
 
