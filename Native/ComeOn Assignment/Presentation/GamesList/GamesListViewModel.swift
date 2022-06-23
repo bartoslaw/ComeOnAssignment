@@ -14,8 +14,8 @@ enum GamesListViewModelErrors: Error {
 
 final class GamesListViewModel: ViewModel {
     var bag: Set<AnyCancellable> = Set()
-    var state: ViewModelState = .initial
     
+    @Published var state: ViewModelState = .initial
     @Published var totalAmountOfGames: Int = 0
     
     private let urlToLoad = "http://localhost:3000"//in real life scenario this will be moved to a separate config file which is connected to proper prod/dev/staging scheme
@@ -46,7 +46,6 @@ final class GamesListViewModel: ViewModel {
                 case .finished:
                     self.state = .finished
                 case .failure(let error):
-                    print(error)
                     self.state = .error
                 }
             } receiveValue: { [weak self] games in

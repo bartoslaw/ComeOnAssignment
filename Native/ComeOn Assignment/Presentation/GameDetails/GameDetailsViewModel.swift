@@ -35,6 +35,16 @@ final class GameDetailsViewModel: ViewModel {
     }
     
     private func parseRGBString(rgbString: String) -> String {
-        return "#" + String(rgbString.replacingOccurrences(of: "RGB(", with: "").dropLast())
+        if rgbString.count != 11 {
+            return ""
+        }
+        
+        let cleanedString = String(rgbString.replacingOccurrences(of: "RGB(", with: "").dropLast())
+        
+        if !cleanedString.allSatisfy(\.isHexDigit) {
+            return ""
+        }
+        
+        return "#" + cleanedString
     }
 }
