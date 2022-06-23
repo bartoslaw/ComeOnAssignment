@@ -30,8 +30,6 @@
 		D3B065992863064900637091 /* GamesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B065982863064900637091 /* GamesListView.swift */; };
 		D3B0659B2863064F00637091 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B0659A2863064F00637091 /* Assets.xcassets */; };
 		D3B0659E2863064F00637091 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B0659D2863064F00637091 /* Preview Assets.xcassets */; };
-		D3B065B22863064F00637091 /* ComeOn_AssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B065B12863064F00637091 /* ComeOn_AssignmentUITests.swift */; };
-		D3B065B42863064F00637091 /* ComeOn_AssignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B065B32863064F00637091 /* ComeOn_AssignmentUITestsLaunchTests.swift */; };
 		D3B149F8286380EF005951EF /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B149F7286380EF005951EF /* UIColor+Extensions.swift */; };
 		D3C3E7D7286337250072D04F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C3E7D6286337250072D04F /* Coordinator.swift */; };
 		D3C3E7DB286337510072D04F /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C3E7DA286337510072D04F /* DI.swift */; };
@@ -80,8 +78,6 @@
 		D3B0659D2863064F00637091 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D3B065A32863064F00637091 /* ComeOn AssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ComeOn AssignmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B065AD2863064F00637091 /* ComeOn AssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ComeOn AssignmentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3B065B12863064F00637091 /* ComeOn_AssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComeOn_AssignmentUITests.swift; sourceTree = "<group>"; };
-		D3B065B32863064F00637091 /* ComeOn_AssignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComeOn_AssignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D3B149F7286380EF005951EF /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		D3C3E7D6286337250072D04F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D3C3E7DA286337510072D04F /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
@@ -199,7 +195,6 @@
 			children = (
 				D3B065952863064900637091 /* ComeOn Assignment */,
 				D3B065A62863064F00637091 /* ComeOn AssignmentTests */,
-				D3B065B02863064F00637091 /* ComeOn AssignmentUITests */,
 				D3B065942863064900637091 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -247,15 +242,6 @@
 				D319BFDE28645A04007561B1 /* gameslist.json */,
 			);
 			path = "ComeOn AssignmentTests";
-			sourceTree = "<group>";
-		};
-		D3B065B02863064F00637091 /* ComeOn AssignmentUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D3B065B12863064F00637091 /* ComeOn_AssignmentUITests.swift */,
-				D3B065B32863064F00637091 /* ComeOn_AssignmentUITestsLaunchTests.swift */,
-			);
-			path = "ComeOn AssignmentUITests";
 			sourceTree = "<group>";
 		};
 		D3C3E7D8286337320072D04F /* GamesList */ = {
@@ -444,8 +430,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3B065B42863064F00637091 /* ComeOn_AssignmentUITestsLaunchTests.swift in Sources */,
-				D3B065B22863064F00637091 /* ComeOn_AssignmentUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
