@@ -14,6 +14,6 @@ That's about it. If there are any additional questions feel free to ask.
 # How to run
 Make sure to run the website first with ***npm start*** command
 
-To run the app just clone this repository, open ***.xcodeproj*** file, choose simulator/device of your liking and hit ***CMD+R*** or choose proper options from Xcode
+To run the app just clone this repository, open ***.xcodeproj*** file, choose simulator/device (if you want to use your device, please make sure that you are on the same network and use your local ip instead of ***localhost***) of your liking and hit ***CMD+R*** or choose proper options from Xcode
 
 To run tests hit ***CMD+U*** or choose proper option from Xcode. You don't need to run the website to run tests, they are relying on mock connection and stubs.
