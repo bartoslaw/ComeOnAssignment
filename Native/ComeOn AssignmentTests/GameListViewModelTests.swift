@@ -67,18 +67,22 @@ class GameListViewModelTests: XCTestCase {
         
         let vm = GamesListViewModel(getGamesListUseCase: self.getGamesListUseCase!)
         
+        var value: ViewModelState = .initial
+        
         vm.onAppear()
         
         vm.$state
             .dropFirst(1)
             .sink { _ in
-            } receiveValue: { value in
-                XCTAssert(value == .error)
+            } receiveValue: { val in
+                value = val
                 expectation.fulfill()
             }
             .store(in: &bag)
         
         wait(for: [expectation], timeout: self.timeout)
+        
+        XCTAssert(value == .error)
     }
     
     func testTotalNumberOfGamesOnSuccess() throws {
@@ -90,12 +94,13 @@ class GameListViewModelTests: XCTestCase {
         
         vm.$totalAmountOfGames
             .dropFirst()
-            .sink { value in
-                XCTAssert(value > 0, "Total number of games is not > 0")
+            .sink { _ in
                 expectation.fulfill()
             }
             .store(in: &bag)
         
         wait(for: [expectation], timeout: self.timeout)
+        
+        XCTAssert(vm.totalAmountOfGames > 0, "Total number of games is not > 0")
     }
 }
