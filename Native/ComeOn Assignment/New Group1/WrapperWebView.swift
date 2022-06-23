@@ -20,6 +20,13 @@ final class WrapperWebView: WKWebView {
         case gameChosen = "gameChosen"
     }
     
+    struct BrowserRequest {
+        let message: HandlerMessages
+        let value: Any
+    }
+    
+    var lastBrowserRequest: BrowserRequest? = nil
+    
     override init(frame: CGRect, configuration: WKWebViewConfiguration) {
         super.init(frame: frame, configuration: configuration)
     }
@@ -35,19 +42,32 @@ final class WrapperWebView: WKWebView {
         if let url = url {
             let request = URLRequest(url: url)
             self.load(request)
-        
-            self.configuration.userContentController.add(self, name: self.toggleMessageHandlerKey)
         }
+        
+        self.configuration.userContentController.add(self, name: self.toggleMessageHandlerKey)
     }
 }
 
 extension WrapperWebView: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         guard
-            let dictionary = message.body as? [String: AnyObject],
-            let value = dictionary[HandlerMessages.gameChosen.rawValue] as? String
+            let dictionary = message.body as? [String: AnyObject]
         else { return }
         
-        self.delegate?.onGameChosen(code: value)
+        self.lastBrowserRequest = self.parseBrowserRequest(dictionary: dictionary)
+    }
+    
+    private func parseBrowserRequest(dictionary: [String: AnyObject]) -> BrowserRequest? {
+        if let value = dictionary[HandlerMessages.gameChosen.rawValue] as? String {
+            let browserRequest = BrowserRequest(message: HandlerMessages.gameChosen, value: value)
+            
+            self.delegate?.onGameChosen(code: value)
+            
+            return browserRequest
+        }
+        
+        //potentially add handling for other messages
+        
+        return nil
     }
 }
