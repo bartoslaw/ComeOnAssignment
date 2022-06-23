@@ -1,15 +1,15 @@
 # ComeOnAssignment
-As requested this repository contains a solutions for Come On Group recruitment assignment
+As requested this repository contains a solution for Come On Group recruitment assignment
 
 # Details
-This app is built with SwiftUI + Combine framework, it doesn't use any 3rd party dependency.
+This app is built with SwiftUI + Combine frameworks, it doesn't use any 3rd party dependency.
 
 Architecture used is (a bit crude) version of MVVM + Coordinator pattern. 
 For business logic we are using usecases (use case to be exact :))
 
-Communication with website is done via native WKWebView components, basically userContentController
+Communication with website is done via native WKWebView api, basically userContentController
 
-That's about it. If there are any additional questions feel free to write to me.
+That's about it. If there are any additional questions feel free to ask.
 
 # How to run
 Make sure to run the website first with ***npm start*** command
