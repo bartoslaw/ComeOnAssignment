@@ -8,6 +8,15 @@
 import SwiftUI
 
 struct GameDetailsView: View {
+    struct Style {
+        static let cardCornerRadius = 8.0
+        static let cardShadowOpacity = 0.7
+        static let cardShadowRadius = 2.0
+        static let cardShadowXOffset = 1.0
+        static let cardShadowYOffset = 2.0
+        static let cardPadding = 10.0
+    }
+    
     @StateObject var viewModel: GameDetailsViewModel
     
     var body: some View {
@@ -18,12 +27,17 @@ struct GameDetailsView: View {
                         .padding()
                 }
                 .background(Color.white)
-                .cornerRadius(8.0)
-                .shadow(color: Color.black.opacity(0.7), radius: 2.0, x: 1.0, y: 2.0)
-                .padding(10.0)
+                .cornerRadius(GameDetailsView.Style.cardCornerRadius)
+                .shadow(
+                    color: Color.black.opacity(GameDetailsView.Style.cardShadowOpacity),
+                    radius: GameDetailsView.Style.cardShadowRadius,
+                    x: GameDetailsView.Style.cardShadowXOffset,
+                    y: GameDetailsView.Style.cardShadowYOffset
+                )
+                .padding(GameDetailsView.Style.cardPadding)
             }
         }
-        .background(Color(UIColor(rgb: self.viewModel.themeColorHex)))
+        .background(Color(UIColor(hex: self.viewModel.themeColorHex) ?? UIColor.black))
         .frame(maxWidth: .infinity)
         .navigationTitle(self.viewModel.title)
         .onAppear {

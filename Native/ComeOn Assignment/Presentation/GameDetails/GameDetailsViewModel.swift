@@ -14,7 +14,7 @@ final class GameDetailsViewModel: ViewModel {
     
     @Published var title: String = ""
     @Published var description: String = ""
-    @Published var themeColorHex: UInt = 0
+    @Published var themeColorHex: String = ""
     
     private let game: Game?
     
@@ -34,15 +34,7 @@ final class GameDetailsViewModel: ViewModel {
         }
     }
     
-    private func parseRGBString(rgbString: String) -> UInt {
-        var str = rgbString.replacingOccurrences(of: "RGB(", with: "").dropLast()
-        
-        if str.count == 6 {
-            str = "FF" + str
-        }
-        
-        print(str)
-        
-        return UInt(str)!
+    private func parseRGBString(rgbString: String) -> String {
+        return "#" + String(rgbString.replacingOccurrences(of: "RGB(", with: "").dropLast())
     }
 }

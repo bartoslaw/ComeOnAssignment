@@ -9,6 +9,11 @@ import SwiftUI
 import Combine
 
 struct GamesListView: View {
+    struct Style {
+        static let progressSize = 100.0
+        static let numberOfGamesFontSize = 11.0
+    }
+    
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel: GamesListViewModel
     
@@ -30,14 +35,14 @@ struct GamesListView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Text(String(format: NSLocalizedString("list.number.of.games %d", comment: ""),
                                     self.viewModel.totalAmountOfGames))
-                            .font(.system(size: 11.0))
+                            .font(.system(size: GamesListView.Style.numberOfGamesFontSize))
                             .foregroundColor(.white)
                     }
                 }
                 
                 if self.viewModel.state == .loading {
                     ProgressView()
-                        .frame(width: 100.0, height: 100.0)
+                        .frame(width: GamesListView.Style.progressSize, height: GamesListView.Style.progressSize)
                 }
                 
                 NavigationLink(isActive: $showDetails) {
