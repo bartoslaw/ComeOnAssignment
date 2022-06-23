@@ -73,8 +73,7 @@ class GameListViewModelTests: XCTestCase {
         
         vm.$state
             .dropFirst(1)
-            .sink { _ in
-            } receiveValue: { val in
+            .sink { val in
                 value = val
                 expectation.fulfill()
             }
